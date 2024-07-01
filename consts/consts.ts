@@ -9,6 +9,6 @@ export const PostsRootDirectory = path.join(process.cwd(), "./data/posts");
 export const RSSFeedURL = `https://${Config.SiteDomain}/rss.xml`;
 export const WebsiteURL = `https://${Config.SiteDomain}/`;
 
-export const CopyrightAnnouncement = `COPYRIGHT © ${Config.YearStart}-${new Date().getFullYear()} ${
+export const CopyrightAnnouncement = ` © ${Config.YearStart}-${new Date().getFullYear()} ${
   Config.AuthorName
-} ALL RIGHTS RESERVED`;
+} `;

@@ -8,15 +8,15 @@ import { MdMenu, MdOutlineDarkMode, MdOutlineLightMode, MdSearch } from "react-i
 
 const MenuItems = [
   {
-    title: "HOME",
+    title: "الرئيسية",
     href: "/",
   },
   {
-    title: "POSTS",
+    title: "المقالات",
     href: "/posts",
   },
   {
-    title: "ABOUT",
+    title: "حول",
     href: "/about",
   },
 ];

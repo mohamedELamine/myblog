@@ -9,6 +9,12 @@
 @import "./font.css";
 @import "./highlight.css";
 
+/* Ensure text direction is set to RTL globally */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -91,4 +97,20 @@
 
 * {
   @apply selection-style;
+}
+
+/* Additional RTL-specific styles */
+img {
+  float: right;
+  margin-left: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+}
+
+blockquote {
+  border-right: 5px solid var(--foreground);
+  padding-right: 10px;
+  margin-right: 0;
 }

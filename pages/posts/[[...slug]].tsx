@@ -57,12 +57,12 @@ export default function PostsPage(props: PostsPageProps) {
       <ContentContainer>
         <h2 className={`my-5 flex justify-center text-2xl font-fang-zheng-xiao-biao-song font-bold`}>
           <LuPenTool className="mx-2 my-auto" />
-          {"ALL POSTS"}
+          {"كل المقالات"}
         </h2>
         {!isEmptyArray(props.tagList) && (
           <Accordion collapsible type="single">
             <AccordionItem className="border-t" value="item-1">
-              <AccordionTrigger className="hover:no-underline font-bold">{"TAG FILTER"}</AccordionTrigger>
+              <AccordionTrigger className="hover:no-underline font-bold">{"مُشجِّر المقالات"}</AccordionTrigger>
               <AccordionContent>
                 <Separator />
                 <div className={`my-5 flex flex-wrap text-wrap text-sm justify-center px-2`}>
@@ -104,7 +104,7 @@ export default function PostsPage(props: PostsPageProps) {
           {props.pageNumber !== props.pageAmount && (
             <Button asChild>
               <Link className="font-bold" href={`/posts/${props.pageNumber + 1}/`}>
-                {"NEXT >"}
+                {"التالي >"}
               </Link>
             </Button>
           )}

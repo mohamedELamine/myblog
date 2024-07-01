@@ -9,7 +9,7 @@ export const TOC = (props: { data: TTOCItem[] }) => {
   return (
     <div className="mx-5">
       <div className="text-lg text-center p-2 font-bold border-t-2 border-b-2 border-gray-500">
-        {"TABLE OF CONTENTS"}
+        {"جَرْد"}
       </div>
       <div className="px-2 py-2 h-[60vh] overflow-y-auto flat-scrollbar-normal">
         <div>

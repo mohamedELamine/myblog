@@ -22,7 +22,7 @@ export const DrawerTOC = (props: { data: TTOCItem[] }) => {
       </SheetTrigger>
       <SheetContent side={"left"}>
         <SheetHeader>
-          <SheetTitle className="mt-8 font-bold">{"TABLE OF CONTENTS"}</SheetTitle>
+          <SheetTitle className="mt-8 font-bold">{"جَرْد"}</SheetTitle>
         </SheetHeader>
         <ul className="my-3 flat-scrollbar h-[70vh] flex flex-col overflow-y-auto flat-scrollbar-normal">
           {props.data?.map((item) => (

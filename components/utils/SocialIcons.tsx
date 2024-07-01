@@ -1,7 +1,7 @@
 import { Config } from "@/data/config";
 import Link from "next/link";
-import { FiGithub, FiInstagram, FiMail, FiTwitter } from "react-icons/fi";
-import { TbBrandFacebook, TbBrandLinkedin, TbBrandMastodon } from "react-icons/tb";
+import { FiGithub, FiInstagram, FiMail, FiTwitter, FiYoutube } from "react-icons/fi";
+import { TbBrandFacebook, TbBrandLinkedin, TbBrandMastodon, TbBrandTelegram } from "react-icons/tb";
 
 export const SocialIcons = () => {
   return (
@@ -11,24 +11,19 @@ export const SocialIcons = () => {
           <FiTwitter className="hover:text-sky-500" />
         </Link>
       )}
-      {Config.SocialLinks.mastodon && (
-        <Link href={Config.SocialLinks.mastodon} target="_blank" title="Mastodon">
-          <TbBrandMastodon className="hover:text-purple-500" />
+      {Config.SocialLinks.telegram && (
+        <Link href={`https://t.me/qalassa`} target="_blank" title="Telegram">
+          <TbBrandTelegram className="hover:text-purple-500" />
         </Link>
       )}
-      {Config.SocialLinks.instagram && (
-        <Link href={`https://instagram.com/${Config.SocialLinks.instagram}`} target="_blank" title="Instagram">
-          <FiInstagram className="hover:text-orange-500" />
+      {Config.SocialLinks.youtube && (
+        <Link href={`https://youtube.com/${Config.SocialLinks.youtube}`} target="_blank" title="Youtube">
+          <FiYoutube className="hover:text-orange-500" />
         </Link>
       )}
       {Config.SocialLinks.facebook && (
-        <Link href={`https://instagram.com/${Config.SocialLinks.facebook}`} target="_blank" title="Instagram">
+        <Link href={`https://facebook.com/${Config.SocialLinks.facebook}`} target="_blank" title="Facebook">
           <TbBrandFacebook className="hover:text-blue-500" />
-        </Link>
-      )}
-      {Config.SocialLinks.linkedin && (
-        <Link href={`https://linkedin.com/in/${Config.SocialLinks.linkedin}`} target="_blank" title="Instagram">
-          <TbBrandLinkedin className="hover:text-blue-500" />
         </Link>
       )}
       {Config.SocialLinks.github && (

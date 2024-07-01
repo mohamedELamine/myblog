@@ -20,18 +20,8 @@ export const Footer = () => {
     >
       <footer className="my-5 flex flex-col justify-center py-2 text-sm">
         <div className="my-2 flex flex-wrap justify-center space-x-3 text-center text-gray-500 underline dark:text-gray-400">
-          <Link href="https://github.com/PrinOrange/nextjs-lexical-blog" title="Sponsor me for my works.">
-            {"Source Code"}
-          </Link>
-          <Link href="/sponsor" title="Sponsor me for my works.">
-            {"Sponsor"}
-          </Link>
-          <Link href="/friends" title="My friend links.">
-            {"Friends"}
-          </Link>
           {Config.RSSFeed?.enabled && (
             <DialogTrigger asChild>
-              <button title="Subscribe the RSS Feed.">{"Feed"}</button>
             </DialogTrigger>
           )}
         </div>

@@ -11,6 +11,8 @@ export type TConfig = {
   };
 
   SocialLinks: {
+    youtube?: string;
+    telegram?: string;
     twitter?: string;
     facebook?: string;
     instagram?: string;

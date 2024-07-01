@@ -2,32 +2,34 @@ import { TConfig } from "@/types/config.type";
 
 export const Config: TConfig = {
   // Image url for avatar.
-  AvatarURL: "/images/avatar.webp",
+  AvatarURL: "/images/qais.jpeg",
   // Your favorite motto, or a brief self-introduction, for homepage display
   Sentence:
-    "Two things fill the mind with ever-increasing wonder and awe: the starry heavens above and the moral law within.",
+    " وَكُلٌّ أَبِيٌّ باسِلٌ غَيرَ أَننَّي |||| إِذا عَرَضَت أُولى الطَرائِدِ أَبسَلُ ",
   // Your nickname, or pen name here.
-  Nickname: "John Doe",
+  Nickname: "قيس العصا",
 
   // Website main title.
-  SiteTitle: "LEXICAL BLOG",
+  SiteTitle: "قيس العصا",
   // Your domain for website.
   SiteDomain: "nextjs-lexical-blog-demo.vercel.app",
 
   // For the cover image displayed on the homepage, the recommended image aspect ratio is 4:1.
   PageCovers: {
-    websiteCoverURL: "/images/cover.webp",
+    websiteCoverURL: "/images/qaisCover.jpeg",
   },
 
   // Your social platform IDs, and email address.
   SocialLinks: {
-    twitter: "example", // Twitter ID
+    twitter: "QaisN3Adham", // Twitter ID
     instagram: "example", // Instagram ID
-    github: "example", // Github ID
-    facebook: "example", // Facebook ID
+    github: "qalassa", // Github ID
+    facebook: "QaisN3", // Facebook ID
     linkedin: "example", // Linkedin ID
     mastodon: "https://mas.to/@example", // Mastodon link
     email: "me@example.com", // Email address, required.
+    telegram: "qalassa",
+    youtube: "@QaisN3"
   },
 
   // Giscus Configure. Please refer to the https://giscus.app for entire instruction
@@ -77,7 +79,7 @@ export const Config: TConfig = {
   },
 
   // Website establishment year.
-  YearStart: 2023,
+  YearStart:2024,
   // Please enter your legal name for use with the copyright mark.
-  AuthorName: "JOHN DOE",
+  AuthorName: "قساوة",
 };

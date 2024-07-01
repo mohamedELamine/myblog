@@ -35,6 +35,7 @@ import rehypeSlug from "rehype-slug";
 import externalLinks from "remark-external-links";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import { useEffect, useState } from "react";
 
 type ReaderPageProps = {
   compiledSource: MDXRemoteSerializeResult;
@@ -48,6 +49,7 @@ type ReaderPageProps = {
 const ReaderPage = (props: ReaderPageProps) => {
   const compiledSource = props.compiledSource;
   const setIsTOCOpen = useDrawerTOCState((state) => state.changeDrawerTOCOpen);
+  const [mounted, setMounted] = useState(false);
 
   // Only the TOC length reaches 3 can be displayed.
   // In order to avoid large blank spaces that ruin the visual perception
@@ -58,6 +60,14 @@ const ReaderPage = (props: ReaderPageProps) => {
     },
     delta: 150,
   });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null; // Avoid client-side rendering until after initial render
+  }
 
   return (
     <Page>

@@ -9,18 +9,18 @@ export const normalizeDate = (date: string = "1970-01-01"): string => {
   const month_en: {
     [index: number]: string;
   } = {
-    1: "January",
-    2: "February",
-    3: "March",
-    4: "April",
-    5: "May",
-    6: "June",
-    7: "July",
-    8: "August",
-    9: "September",
-    10: "October",
-    11: "November",
-    12: "December",
+    1: "يناير",
+    2: "فبراير",
+    3: "مارس",
+    4: "أبريل",
+    5: "مايو",
+    6: "يونيو",
+    7: "يوليو",
+    8: "أغسطس",
+    9: "سبتمبر",
+    10: "أكتوبر",
+    11: "نوفمبر",
+    12: "ديسمبر",
   };
   return `${day_num} ${month_en[month_num]}, ${year}`;
 };

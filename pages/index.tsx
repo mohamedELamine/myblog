@@ -27,7 +27,7 @@ export default function Home(props: HomePageProps) {
       <SEO
         coverURL={Config.PageCovers.websiteCoverURL}
         description={`Welcome to the ${Config.Nickname}'s blog website. It's the website for recording thoughts for technology, life experience and so on.`}
-        title={`${Config.SiteTitle} - The personal blog for ${Config.Nickname}`}
+        title={`${Config.SiteTitle} - شبكية ${Config.Nickname}`}
       />
       <NavBar />
       <ContentContainer>
@@ -37,7 +37,7 @@ export default function Home(props: HomePageProps) {
             <Separator />
             <h2 className={`my-5 flex justify-center text-2xl font-bold font-fang-zheng-xiao-biao-song`}>
               <RiStarFill className="mx-2 my-auto" />
-              {"PINNED POSTS"}
+              {"مقالات مثبتة"}
             </h2>
             <Separator />
             <PostList data={props.pinnedPostList} />
@@ -48,7 +48,7 @@ export default function Home(props: HomePageProps) {
             <Separator />
             <h2 className={`my-5 flex justify-center text-2xl font-bold font-fang-zheng-xiao-biao-song`}>
               <LuPenTool className="mx-2 my-auto" />
-              {"LATEST POSTS"}
+              {"آخر المقالات"}
             </h2>
             <Separator />
             <PostList data={props.latestPostList} />
@@ -56,7 +56,7 @@ export default function Home(props: HomePageProps) {
             <div className="my-5 flex justify-end">
               <Button asChild>
                 <Link className="font-bold" href="/posts">
-                  {"MORE POSTS >"}
+                  {"مزيد من المنشورات >"}
                 </Link>
               </Button>
             </div>
