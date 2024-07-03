@@ -30,11 +30,11 @@ export default function SearchPage() {
     onSuccess: (data) => {
       setSearchResult(data);
       if (data.length === 0) {
-        toast({ title: "Empty Result", description: "No results were found for this keyword. Try another keyword." });
+        toast({ title: "نتيجة فارغة", description: "لم تُوجَد نتائج لهذه الكلمة، جرب كلمات أخرى" });
       }
     },
     onError: () => {
-      toast({ title: "Network Error", description: "Please try it later." });
+      toast({ title: "خطأ شبكي", description: "حاولة ثانيةً لاحقا" });
     },
   });
 
@@ -48,11 +48,11 @@ export default function SearchPage() {
 
   const handleMakeSearch = () => {
     if (isEmptyString(searchText)) {
-      toast({ title: "Enter a Keyword", description: "Please enter one keyword at least." });
+      toast({ title: "أدخل كلمة", description: "أدخل كلمة واحدة على الأقل للبحث" });
       return;
     }
     if (searchText.length < 4) {
-      toast({ title: "Keywords too short", description: "Keyword length must be at least 5." });
+      toast({ title: "الكلمة قصيرة جدا", description: "يجب أن يكون عدد الحروف 5 على الأقل" });
       return;
     }
     querySearch.refetch();
@@ -60,7 +60,7 @@ export default function SearchPage() {
 
   return (
     <Page>
-      <SEO description={"Search the posts on your demand."} title={`${Config.SiteTitle} - Search`} />
+      <SEO description={"ابحث عن المقالات حسبما تريد"} title={`${Config.SiteTitle} - Search`} />
       <Toaster />
       <NavBar />
       <ContentContainer>
@@ -72,7 +72,7 @@ export default function SearchPage() {
             className="my-auto py-0"
             onChange={handleInputSearchText}
             onKeyDown={handleEnterKeySearch}
-            placeholder="Input the keyword"
+            placeholder="أدخِل للبحث"
             value={searchText}
           />
           <Button className="mx-3 w-32 my-auto" disabled={querySearch.isLoading} onClick={handleMakeSearch}>
