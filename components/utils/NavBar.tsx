@@ -59,7 +59,7 @@ export const NavBar = () => {
           <div
             className="cursor-pointer mx-1 rounded-full p-1 text-3xl text-black hover:bg-gray-200 dark:text-gray-50 dark:hover:bg-gray-800"
             onClick={handleSwitchTheme}
-            title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+            title={theme === "اعتيادي" ? "تحويل للرؤية الداكنة" : "تحويل للرؤية الاعتيادية"}
           >
             {theme === "light" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
           </div>
@@ -102,7 +102,7 @@ export const NavBar = () => {
         >
           <div
             className="cursor-pointer mx-1 my-auto rounded-full text-2xl"
-            title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+            title={theme === "اعتيادي" ? "تحويل للرؤية الداكنة" : "تحويل للرؤية الاعتيادية"}
           >
             {theme === "light" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
           </div>
