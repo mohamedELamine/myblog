@@ -26,7 +26,7 @@ export default function Home(props: HomePageProps) {
     <Page>
       <SEO
         coverURL={Config.PageCovers.websiteCoverURL}
-        description={`Welcome to the ${Config.Nickname}'s blog website. It's the website for recording thoughts for technology, life experience and so on.`}
+        description={`موقع قيس العصا الشبكي للتدوين في علم التحسيب والمنطق والفلسفة وموضوعات أخرى`}
         title={`${Config.SiteTitle} - شبكية ${Config.Nickname}`}
       />
       <NavBar />
