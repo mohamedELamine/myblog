@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PaymentButton = () => {
+const PaymentButton: React.FC = () => {
   const handlePayment = () => {
     window.location.href = 'https://nowpayments.io/payment/?iid=4380342004';
   };
