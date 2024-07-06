@@ -86,7 +86,7 @@
     "typescript": "5.2.2",
     "url-join": "^5.0.0",
     "zustand": "^4.4.7",
-    "aws-sdk": "^2.1655.0",
+    "aws-sdk": "^2.1655.0"
 
   },
   "devDependencies": {
