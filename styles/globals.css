@@ -79,6 +79,20 @@ html[dir="rtl"] {
   }
 }
 
+.payment-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.payment-button:hover {
+  background-color: #45a049;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -113,18 +127,4 @@ blockquote {
   border-right: 5px solid var(--foreground);
   padding-right: 10px;
   margin-right: 0;
-}
-
-.payment-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
-}
-
-.payment-button:hover {
-  background-color: #45a049;
 }
