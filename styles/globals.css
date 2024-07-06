@@ -79,6 +79,31 @@ html[dir="rtl"] {
   }
 }
 
+.book-section {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.book-cover {
+  max-width: 200px;
+  margin-right: 2rem;
+}
+
+.book-description {
+  max-width: 600px;
+}
+
+.book-description h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.book-description p {
+  margin-bottom: 1rem;
+}
+
 .payment-button {
   background-color: #4caf50;
   color: white;
