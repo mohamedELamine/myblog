@@ -114,3 +114,17 @@ blockquote {
   padding-right: 10px;
   margin-right: 0;
 }
+
+.payment-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.payment-button:hover {
+  background-color: #45a049;
+}
