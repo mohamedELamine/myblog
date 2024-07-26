@@ -4,7 +4,7 @@ time: "2024-07-26"
 tags: ["Programming", "AI", "Chess Programming", "Chess"]
 pin: true
 ---
-
+<div dir="ltr">
 # The Art and Science of Computer Chess
 
 ## Introduction
@@ -319,3 +319,5 @@ As artificial intelligence continues to advance, the story of computer chess rem
 
 - Wilkins, D. (1980). Using patterns and plans in chess. Artificial Intelligence, 14(2), 165-203.
 </antArtifact>
+
+</div>
