@@ -5,7 +5,6 @@ tags: ["Programming", "AI", "Chess Programming", "Chess"]
 pin: true
 ---
 <div dir="ltr">
-# The Art and Science of Computer Chess
 
 ## Introduction
 
