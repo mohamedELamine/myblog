@@ -25,11 +25,6 @@ type HomePageProps = {
 export default function Home(props: HomePageProps) {
   return (
     <Page>
-      <SEO
-        coverURL={Config.PageCovers.websiteCoverURL}
-        description={`موقع قيس العصا الشبكي للتدوين في علم التحسيب والمنطق والفلسفة وموضوعات أخرى`}
-        title={`${Config.SiteTitle} - شبكية ${Config.Nickname}`}
-      />
       <NavBar />
       <ContentContainer>
         <HomeCover />
