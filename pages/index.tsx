@@ -33,14 +33,6 @@ export default function Home(props: HomePageProps) {
       <NavBar />
       <ContentContainer>
         <HomeCover />
-        <div className="book-section">
-          <img src="/book-cover.jpg" alt="Cryptographic Techniques for Blockchain: Theory and Practice" className="book-cover" />
-          <div className="book-description">
-            <h2>Cryptographic Techniques for Blockchain: Theory and Practice</h2>
-            <p>This book provides a comprehensive guide to the cryptographic techniques essential for blockchain technology. Learn about the theory and practical applications of these techniques in a structured manner.</p>
-            <PaymentButton />
-          </div>
-        </div>
         {props.pinnedPostList.length !== 0 && (
           <div>
             <Separator />
