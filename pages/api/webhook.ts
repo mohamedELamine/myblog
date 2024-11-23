@@ -12,13 +12,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (paymentData.payment_status === 'confirmed') {
       const email = paymentData.purchase_data.email;
 
-      // Generate a signed URL for the PDF
-      const ebookUrl = s3.getSignedUrl('getObject', {
-        Bucket: 'amplify-collab-dev-03401-deployment',
-        Key: 'Cryptographic Techniques for Blockchain: Theory and Practice - by Qais Alassa.pdf',
-        Expires: 60 * 60 // 1 hour expiration
-      });
-
       const emailParams = {
         Source: 'qais@qasawa.com',
         Destination: { ToAddresses: [email] },
