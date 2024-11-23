@@ -15,7 +15,6 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import { LuPenTool } from "react-icons/lu";
 import { RiStarFill } from "react-icons/ri";
-import PaymentButton from '@/components/PaymentButton';
 
 type HomePageProps = {
   pinnedPostList: TPostListItem[];
