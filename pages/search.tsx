@@ -65,7 +65,7 @@ export default function SearchPage() {
       <NavBar />
       <ContentContainer>
         <h2 className={`my-10 flex justify-center text-2xl font-bold font-fang-zheng-xiao-biao-song`}>
-          {"SEARCH POSTS"}
+          {"ابحث في المدونة"}
         </h2>
         <div className="flex my-10">
           <Input
@@ -76,7 +76,7 @@ export default function SearchPage() {
             value={searchText}
           />
           <Button className="mx-3 w-32 my-auto" disabled={querySearch.isLoading} onClick={handleMakeSearch}>
-            {querySearch.isFetching ? "Loading" : "Search"}
+            {querySearch.isFetching ? "Loading" : "بحث"}
           </Button>
         </div>
         <div className="flex flex-col justify-center">

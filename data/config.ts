@@ -2,44 +2,45 @@ import { TConfig } from "@/types/config.type";
 
 export const Config: TConfig = {
   // Image url for avatar.
-  AvatarURL: "/images/qais.jpeg",
+  AvatarURL: "/images/profile.jpeg",
   // Your favorite motto, or a brief self-introduction, for homepage display
   Sentence:
-    " وَكُلٌّ أَبِيٌّ باسِلٌ غَيرَ أَننَّي |||| إِذا عَرَضَت أُولى الطَرائِدِ أَبسَلُ ",
+    " مدونة شخصية! يقال شِعرُ الرجلِ قطعةٌ مِن كلامِه، وظنُّه قطعةٌ مِن علمِه، واختيارُه قطعةٌ مِن عقلِه، وهنا ستجد ذلك كله، وما أكتبه لنفسي، فأنا المتكلم والمخاطب على حد السواء، ولك بعد هذا حرية الأخذ والرد والرضى ما وجدت أسباب الرضى، والسخط ما وجدت أسبابه، وأنت مشكور في الحالين جميعا!",
   // Your nickname, or pen name here.
-  Nickname: "قيس العصا",
+  Nickname: " محمد الأمين  ",
 
   // Website main title.
-  SiteTitle: "قيس العصا",
+  SiteTitle: "محمد الأمين ",
   // Your domain for website.
   SiteDomain: "nextjs-lexical-blog-demo.vercel.app",
 
   // For the cover image displayed on the homepage, the recommended image aspect ratio is 4:1.
   PageCovers: {
-    websiteCoverURL: "/images/qaisCover.jpeg",
+    websiteCoverURL: "/images/Cover.jpeg",
   },
 
   // Your social platform IDs, and email address.
   SocialLinks: {
-    twitter: "QaisN3Adham", // Twitter ID
-    instagram: "example", // Instagram ID
-    github: "qalassa", // Github ID
-    facebook: "QaisN3", // Facebook ID
-    linkedin: "example", // Linkedin ID
+    twitter: "Twitter", // Twitter ID
+    instagram: "Instagram", // Instagram ID
+    github: "mohamedELamine", // Github ID
+    facebook: "mohammedbml28", // Facebook ID
+    linkedin: "belahcene-mohammed-elamin-a2617a22b", // Linkedin ID
     mastodon: "https://mas.to/@example", // Mastodon link
-    email: "me@example.com", // Email address, required.
-    telegram: "qalassa",
-    youtube: "@QaisN3"
+    email: "mohamedbml28@gmail.com", // Email address, required.
+    telegram: "mohamedbml",
+    youtube: "example", // YouTube ID
   },
 
   // Giscus Configure. Please refer to the https://giscus.app for entire instruction
   Giscus: {
     enabled: true,
-    repo: `PrinOrange/nextjs-lexical-blog`,
-    repoId: "R_kgDOK44zmw",
-    category: "Announcements",
-    categoryId: "DIC_kwDOK44zm84Cb94g",
+    repo: `mohamedELamine/myblog`, // ← اسم مستودعك
+    repoId: "R_kgDOPY8A1g",
+    category: "General",
+    categoryId: "DIC_kwDOPY8A1s4Ct0a_",
   },
+  
 
   // Enable the RSS Feed? If not, the feed file will not be generated and the feed entrance will be closed.
   RSSFeed: {
@@ -81,5 +82,5 @@ export const Config: TConfig = {
   // Website establishment year.
   YearStart:2024,
   // Please enter your legal name for use with the copyright mark.
-  AuthorName: "قساوة",
+  AuthorName: "محمد الأمين  ",
 };

@@ -25,7 +25,7 @@ export default function AboutPage() {
             <img alt="my-profile" className="mx-auto my-auto max-h-[23rem] rounded-lg" src="/images/me.jpeg" />
           </div>
           <div className="my-auto md:w-1/3">
-            <div className="mt-5 mb-3 text-3xl font-bold">قيس العصا</div>
+            <div className="mt-5 mb-3 text-3xl font-bold">محمد الأمين  </div>
             من مقالاتي تعرفونني
             <br />
             <br />
@@ -38,7 +38,7 @@ export default function AboutPage() {
         <Separator />
 
         <ul className="mx-auto my-10 px-5 md:w-2/3 list-disc">
-          <li className="my-2">فلسطين، الضفة الغربية</li>
+          <li className="my-2">   أوقروت، تيميمون، الجزائر  </li>
         </ul>
 
         <div className="mx-auto my-10 md:w-2/3 font-bold">
