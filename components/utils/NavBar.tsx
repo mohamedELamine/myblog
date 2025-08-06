@@ -94,7 +94,7 @@ export const NavBar = () => {
           onClick={() => setIsSideNavOpen(false)}
           title="Search the posts"
         >
-          {"SEARCH"}
+          {"البحث"}
         </Link>
         <div
           className="flex text-xl p-3 cursor-pointer border-b border-dashed justify-end hover:text-sky-500"
@@ -106,7 +106,7 @@ export const NavBar = () => {
           >
             {theme === "light" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
           </div>
-          <div className="my-auto">{theme === "light" ? "DARK" : "LIGHT"}</div>
+          <div className="my-auto">{theme === "light" ? "داكن" : "فاتح"}</div>
         </div>
       </SheetContent>
     </Sheet>
