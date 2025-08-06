@@ -11,6 +11,8 @@ export const HomeCover = () => {
             aspectRatio: "4/1",
             background: `url(${Config.PageCovers.websiteCoverURL})`,
             backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
           }}
         >
           <img
