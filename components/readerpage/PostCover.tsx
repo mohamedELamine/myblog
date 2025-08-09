@@ -6,8 +6,8 @@ export const PostCover = (props: { coverURL: string }) => {
         aspectRatio: "5/2",
         background: `url(${props.coverURL})`,
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     />
   );
