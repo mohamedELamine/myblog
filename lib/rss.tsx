@@ -42,26 +42,54 @@ function minifyHTMLCode(htmlString: string): string {
  * Generate the RSS Feed File in `./public` so it could be visited by https://domain/rss.xml
  */
 export const generateRSSFeed = async () => {
+  // الأساس لبناء الروابط المطلقة
+  const BASE = WebsiteURL || `https://${Config.SiteDomain}`;
+
+  // تحويل أي مسار/رابط (حتى لو كان فيه null/undefined) إلى رابط مطلق صالح
+  const toAbs = (p?: string | null): string | undefined => {
+    if (!p) return undefined; // يغطي undefined و null و ""
+    const trimmed = p.trim();
+    // التقط أول مقطع يبدو كرابط أو مسار
+    const candidate =
+      trimmed.split(/\s+/).find((t) => /^https?:\/\//.test(t) || t.startsWith("/")) || trimmed;
+    try {
+      return new URL(candidate, BASE).toString();
+    } catch {
+      return undefined; // تجاهل المدخلات غير الصالحة بدل إسقاط البناء
+    }
+  };
+
   const feed = new Feed({
     title: Config.SiteTitle,
     description: Config.Sentence,
-    id: Config.SiteDomain,
-    link: WebsiteURL,
-    image: Config.PageCovers.websiteCoverURL,
-    favicon: `https://${Config.SiteDomain}/favcion.ico`,
+    id: BASE,                       // اجعله مطلقًا
+    link: BASE,                     // اجعله مطلقًا
+    image: toAbs(Config.PageCovers.websiteCoverURL),
+    favicon: toAbs("/favicon.ico"), // إصلاح الخطأ المطبعي السابق
     copyright: CopyrightAnnouncement,
     generator: "Node.js Feed",
     author: {
       name: Config.AuthorName,
       email: Config.SocialLinks.email,
-      link: WebsiteURL,
+      link: BASE,
     },
   });
 
-  for (let i = 0; i < Math.min(LatestPostCountInHomePage, sortedPosts.allPostList.length); i++) {
+  const count = Math.min(LatestPostCountInHomePage, sortedPosts.allPostList.length);
+
+  for (let i = 0; i < count; i++) {
     const post = sortedPosts.allPostList[i];
-    const postFileContent = `${getPostFileContent(post.id)}${NoticeForRSSReaders}}`;
-    const dateNumber = post.frontMatter.time.split("-").map((num) => parseInt(num));
+
+    // إزالة القوس الزائد الذي كان يكسر الـ build
+    const postFileContent = `${getPostFileContent(post.id)}${NoticeForRSSReaders}`;
+
+    // تفكيك التاريخ مع الانتباه لأن الشهر صفر-مفهرس في JS
+    const dateParts = (post.frontMatter.time || "").split("-").map((n) => parseInt(n, 10));
+    const y = dateParts[0] || new Date().getFullYear();
+    const m = (dateParts[1] || 1) - 1; // شهر JS يبدأ من 0
+    const d = dateParts[2] || 1;
+
+    // تحويل MDX إلى HTML ثم تقليصه
     const mdxSource = await serialize(postFileContent ?? "", {
       parseFrontmatter: true,
       mdxOptions: {
@@ -72,23 +100,85 @@ export const generateRSSFeed = async () => {
     });
     const htmlContent = minifyHTMLCode(renderToString(<MDXRemote {...mdxSource} />));
 
+    // روابط مطلقة للمنشور والغلاف
+    const postUrl = new URL(`/blog/${post.id}`, BASE).toString();
+    const coverAbs = toAbs(post.frontMatter.coverURL ?? undefined);
+
     feed.addItem({
       title: post.frontMatter.title,
-      id: post.id,
-      link: `https://${Config.SiteDomain}/blog/${post.id}`,
+      id: postUrl,                  // اجعله مطلقًا
+      link: postUrl,                // اجعله مطلقًا
       description: post.frontMatter.summary ?? undefined,
       content: htmlContent,
       author: [
         {
           name: Config.AuthorName,
           email: Config.SocialLinks.email,
-          link: `https://${Config.SiteDomain}/about`,
+          link: new URL("/about", BASE).toString(),
         },
       ],
       category: post.frontMatter.tags?.map((tagname) => ({ name: tagname })),
-      date: new Date(dateNumber[0], dateNumber[1], dateNumber[2]),
-      image: post.frontMatter.coverURL ?? undefined,
+      date: new Date(y, m, d),
+      image: coverAbs,              // undefined إذا لم يكن صالحًا
+      // enclosure: coverAbs ? { url: coverAbs, type: 'image/png' } : undefined, // اختياري
     });
   }
-  fs.writeFile("./public/rss.xml", feed.rss2(), "utf-8", (err) => {});
+
+  try {
+    fs.writeFileSync("./public/rss.xml", feed.rss2(), "utf-8");
+  } catch (e) {
+    console.error("RSS write failed, skipping:", e);
+  }
 };
+
+// export const generateRSSFeed = async () => {
+//   const feed = new Feed({
+//     title: Config.SiteTitle,
+//     description: Config.Sentence,
+//     id: Config.SiteDomain,
+//     link: WebsiteURL,
+//     image: Config.PageCovers.websiteCoverURL,
+//     favicon: `https://${Config.SiteDomain}/favcion.ico`,
+//     copyright: CopyrightAnnouncement,
+//     generator: "Node.js Feed",
+//     author: {
+//       name: Config.AuthorName,
+//       email: Config.SocialLinks.email,
+//       link: WebsiteURL,
+//     },
+//   });
+
+//   for (let i = 0; i < Math.min(LatestPostCountInHomePage, sortedPosts.allPostList.length); i++) {
+//     const post = sortedPosts.allPostList[i];
+//     const postFileContent = `${getPostFileContent(post.id)}${NoticeForRSSReaders}}`;
+//     const dateNumber = post.frontMatter.time.split("-").map((num) => parseInt(num));
+//     const mdxSource = await serialize(postFileContent ?? "", {
+//       parseFrontmatter: true,
+//       mdxOptions: {
+//         remarkPlugins: [remarkPrism, externalLinks, remarkMath, remarkGfm],
+//         rehypePlugins: [rehypeMathJax, rehypeAutolinkHeadings, rehypeSlug, rehypePresetMinify as any, rehypeRaw],
+//         format: "md",
+//       },
+//     });
+//     const htmlContent = minifyHTMLCode(renderToString(<MDXRemote {...mdxSource} />));
+
+//     feed.addItem({
+//       title: post.frontMatter.title,
+//       id: post.id,
+//       link: `https://${Config.SiteDomain}/blog/${post.id}`,
+//       description: post.frontMatter.summary ?? undefined,
+//       content: htmlContent,
+//       author: [
+//         {
+//           name: Config.AuthorName,
+//           email: Config.SocialLinks.email,
+//           link: `https://${Config.SiteDomain}/about`,
+//         },
+//       ],
+//       category: post.frontMatter.tags?.map((tagname) => ({ name: tagname })),
+//       date: new Date(dateNumber[0], dateNumber[1], dateNumber[2]),
+//       image: post.frontMatter.coverURL ?? undefined,
+//     });
+//   }
+//   fs.writeFile("./public/rss.xml", feed.rss2(), "utf-8", (err) => {});
+// };
