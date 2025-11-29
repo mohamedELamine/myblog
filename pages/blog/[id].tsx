@@ -65,10 +65,6 @@ const ReaderPage = (props: ReaderPageProps) => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null; // Avoid client-side rendering until after initial render
-  }
-
   return (
     <Page>
       <SEO
@@ -78,7 +74,7 @@ const ReaderPage = (props: ReaderPageProps) => {
       />
       <Toaster />
       <NavBar />
-      <ContentContainer>
+      <ContentContainer className={`transition-opacity duration-300 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
         <div
           className={`py-1 ${isTOCLongEnough ? "justify-between" : "justify-center"} lg:flex space-x-5`}
           style={{ borderRadius: "5px" }}

@@ -1,4 +1,3 @@
-var WebpackObfuscator = require("webpack-obfuscator");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
@@ -8,15 +7,6 @@ const nextConfig = {
       { protocol: "https", hostname: "github.com" },
     ],
   },
-  // webpack: (config, { dev }) => {
-  //   if (!dev) {
-  //     config.plugins.push(new WebpackObfuscator({ rotateStringArray: true }));
-  //   }
-  //   return config;
-  // },
-  // experimental: {
-  //   webpackBuildWorker: true,
-  // },
 };
 
 module.exports = nextConfig;
